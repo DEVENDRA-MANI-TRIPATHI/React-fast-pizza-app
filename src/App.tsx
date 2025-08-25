@@ -13,6 +13,7 @@ const App = () => {
   const router = createBrowserRouter([
     {
       element: <AppLayout />,
+      errorElement:<Error/>,
       children: [
         {
           path: "/",
@@ -36,11 +37,6 @@ const App = () => {
           element: <Creatreorder />,
         },
       ],
-    },
-
-    {
-      path: "*",
-      element: <Error />,
     },
   ]);
   return <RouterProvider router={router}/>;

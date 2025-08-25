@@ -1,8 +1,18 @@
-import React from 'react'
+
+import { useNavigate, useRouteError } from 'react-router-dom'
 
 const Error = () => {
+
+  const error:any = useRouteError()
+  const navigate = useNavigate();
+  console.log(error);
   return (
-    <div>Error</div>
+    <div>
+      <h2>{error.data}</h2>
+      <button onClick={()=>navigate(-1)}>
+        go back
+      </button>
+    </div>
   )
 }
 
