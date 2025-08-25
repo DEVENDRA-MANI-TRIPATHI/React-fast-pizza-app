@@ -1,13 +1,23 @@
 import Header from "./Header";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigation } from "react-router-dom";
+import LoadingIndicator from "./LoadingIndicator";
 
 const AppLayout = () => {
+  const navigation = useNavigation();
+  const isLoading = navigation.state === "loading";
+
   return (
     <>
-      <Header />
-      <main>
-        <Outlet />
-      </main>
+      {isLoading ? (
+        <LoadingIndicator />
+      ) : (
+        <>
+          <Header />
+          <main>
+            <Outlet />
+          </main>
+        </>
+      )}
 
       <footer>mani</footer>
     </>
