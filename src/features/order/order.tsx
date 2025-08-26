@@ -1,9 +1,15 @@
+import { getOrder } from "../../utils/apiRestaurant"
 
 
-const order = () => {
+const Order = () => {
   return (
     <div>order</div>
   )
 }
 
-export default order
+export function loader({params}) {
+  const order = getOrder(params.orderId)
+  return order;
+}
+
+export default Order

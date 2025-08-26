@@ -12,3 +12,16 @@ export async function getMenu() {
   const data = res.json()
   return data;
 }
+
+export async function getOrder(id) {
+  const res = await fetch(`${base_url}/order/${id}`, {
+    headers:{"Accept":"application/json"}
+  });
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`failed to fetch the data ${res.status} ${text}`)
+  }
+
+  const {data} = await res.json();
+  return data;
+}
